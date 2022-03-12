@@ -1,7 +1,7 @@
 class Config:
 
     class MySqlConf:
-        host = "127.0.0.1"
+        host = "mysql"
         port = "3306"
         user = "root"
         password = "Piotrek120"

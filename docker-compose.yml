@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  e-commerce:
+    container_name: e-commerce
+    build: .
+    working_dir: /app
+    command: uvicorn main:app --host 0.0.0.0 --port 80 --reload
+    environment:
+      DEBUG: 1
+    volumes:
+      - .:/app
+    ports:
+      - 80:80
+    restart: on-failure
+
+  mysql:
+    image: mysql
+    restart: always
+    command: --innodb_use_native_aio=0
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: Piotrek120
+      MYSQL_DATABASE: ecommerce
