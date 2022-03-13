@@ -1,3 +1,6 @@
+from redis_om import get_redis_connection
+
+
 class Config:
 
     class MySqlConf:
@@ -6,3 +9,10 @@ class Config:
         user = "root"
         password = "Piotrek120"
         database = "ecommerce"
+
+    class RedisConf:
+        redis_db = get_redis_connection(
+            host='redis',
+            port=6379,
+            password="Piotrek120"
+        )
