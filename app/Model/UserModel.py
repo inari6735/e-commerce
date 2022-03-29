@@ -3,8 +3,8 @@ from typing import Union, List
 
 
 class UserModel(BaseModel):
-    email: str
-    password: str
+    email: Union[str, None]
+    password: Union[str, None]
     name: Union[str, None]
     lastname: Union[str, None]
 
