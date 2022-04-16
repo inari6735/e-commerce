@@ -1,5 +1,3 @@
-from typing import List
-
 from app.Class.DatabaseClass import DatabaseClass
 from app.Config.config import Config
 from app.Model.UserModel import UserModel
