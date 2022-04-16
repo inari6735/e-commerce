@@ -79,7 +79,7 @@ async def update_user(
 
 
 @router.delete("/delete/{user_id}", response_model=UserResponseModel)
-async def update_user(
+async def delete_user(
     user_id: int,
     view_data=Depends(ViewData.create)
 ):

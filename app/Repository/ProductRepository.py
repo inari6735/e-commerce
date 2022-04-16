@@ -77,3 +77,39 @@ class ProductRepository:
         )
 
         self.db.query(query, params)
+
+    def update_product(
+        self,
+        product_id: int,
+        product_data: ProductModel
+    ):
+        query = f"""
+                    UPDATE product
+                    SET
+                        product_code = %s,
+                        name = %s,
+                        price = %s,
+                        quantity = %s
+                    WHERE id = %s
+                """
+
+        params = (
+            product_data.product_code,
+            product_data.name,
+            product_data.price,
+            product_data.quantity,
+            product_id
+        )
+
+        self.db.query(query, params)
+
+    def delete_product(
+        self,
+        product_id: int
+    ):
+        query = f"""
+                    DELETE FROM product
+                    WHERE id = %s
+                """
+
+        self.db.query(query, (product_id,))
