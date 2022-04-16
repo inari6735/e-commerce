@@ -2,6 +2,7 @@ from app.Config.config import Config
 from app.Class.DatabaseClass import DatabaseClass
 from app.Repository.TestRepository import TestRepository
 from app.Repository.UserRepository import UserRepository
+from app.Repository.ProductRepository import ProductRepository
 
 
 class ViewData:
@@ -11,6 +12,7 @@ class ViewData:
 
         self.test_repository = TestRepository(self.config, self.my_sql)
         self.user_repository = UserRepository(self.config, self.my_sql)
+        self.product_repository = ProductRepository(self.config, self.my_sql)
 
     @staticmethod
     def create():
