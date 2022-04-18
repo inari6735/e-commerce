@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends
 from app.Model.UserModel import UserModel, UserResponseModel
 from fastapi.encoders import jsonable_encoder
 from app.Config.view_data import ViewData
+from app.Class.SecurityCaesarCipher import SecurityCaesarCipher
 
 router = APIRouter()
 
@@ -51,6 +52,9 @@ async def create_user(
     success = False
 
     try:
+        user.password = SecurityCaesarCipher.encrypt(user.password)
+        print(user.password)
+
         view_data.user_repository.create_user(user)
         success = True
     except Exception as e:
