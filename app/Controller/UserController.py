@@ -53,8 +53,6 @@ async def create_user(
 
     try:
         user.password = SecurityCaesarCipher.encrypt(user.password)
-        print(user.password)
-
         view_data.user_repository.create_user(user)
         success = True
     except Exception as e:
