@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.Controller import TestController, SessionController, UserController, ProductController
+from app.Controller import TestController, SessionController, UserController, ProductController, CartRedisController
 
 app = FastAPI(title="e-commerce")
 
@@ -29,5 +29,12 @@ app.include_router(
     SessionController.router,
     prefix="/session",
     tags=["session methods"],
+    responses={400: {"description": "Error Bad Request"}}
+)
+
+app.include_router(
+    CartRedisController.router,
+    prefix="/cart_redis",
+    tags=["cart_redis methods"],
     responses={400: {"description": "Error Bad Request"}}
 )

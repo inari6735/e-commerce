@@ -4,6 +4,7 @@ from typing import Any
 from fastapi import Depends, APIRouter, Request, Response
 from fastapi_redis_session import deleteSession, getSession, getSessionId, getSessionStorage, setSession, SessionStorage, basicConfig
 from app.Model.SessionModel import SessionRequestModel
+from app.Model.CartRedisModel import CartRedisModel
 
 router = APIRouter()
 
@@ -36,5 +37,7 @@ async def _delete_session(
     session_id: str = Depends(getSessionId),
     session_storage: SessionStorage = Depends(getSessionStorage)
 ):
+    cart_redis = CartRedisModel()
+    cart_redis.delete(session_id)
     deleteSession(session_id, session_storage)
     return None
