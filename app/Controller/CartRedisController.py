@@ -41,7 +41,7 @@ async def add_product_to_cart(
     return jsonable_encoder({"data": cart_redis, "success": success})
 
 
-@router.get("/get")
+@router.get("/get", response_model=CartRedisResponseModel)
 async def get_cart(
     session_id: str = Depends(getSessionId)
 ):
