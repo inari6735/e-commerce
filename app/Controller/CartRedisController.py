@@ -48,7 +48,8 @@ async def get_cart(
     success = True
     cart_redis = None
     try:
-        cart_redis = CartRedisModel.get(session_id)
+        if session_id != "":
+            cart_redis = CartRedisModel.get(session_id)
 
     except NotFoundError:
         pass
