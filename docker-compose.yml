@@ -17,6 +17,7 @@ services:
     restart: on-failure
 
   mysql:
+    platform: linux/x86_64
     image: mysql
     restart: always
     command: --innodb_use_native_aio=0
@@ -29,9 +30,9 @@ services:
       MYSQL_DATABASE: ecommerce
 
   redis:
-    image: redis:latest
+    image: redislabs/rejson:latest
     restart: always
-    command: redis-server --save 20 1 --loglevel warning --requirepass Piotrek120
+    command: redis-server --loadmodule /usr/lib/redis/modules/rejson.so --save 20 1 --loglevel warning --requirepass Piotrek120
     ports:
       - 127.0.0.1:6380:6379
     volumes:
