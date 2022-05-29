@@ -1,14 +1,16 @@
 
-# <h1 style="text-align: center; color:#F1FFE7">E-commerce</h1>
-# <h1 style="text-align: center; color:#32A287">Installation:</h1>
-<p style="text-align: center"><code style="text-align: center; color:#44CF6C">docker compose up --build</code></p>
-<p style="text-align: center"><code style="text-align: center; color:#44CF6C">docker compose up</code></p>
+<h1>E-commerce</h1>
+<p>
+REST application for non logged users carts. It is an example of redis usage inside e-commerce solutions.
+</p>
+<h1>Technologies</h1>
+Project is created with: <br>
+- fastapi <br>
+- redis-om <br>
+- fastapi_redis_session
 
-
-<h2>Connecting to redis via terminal</h2>
-
-<code>docker exec -it [redis_container_id] sh</code>
-
-<code>redis-cli
-
-AUTH [redis_password]</code>
+<h1>Installation:</h1>
+<code>docker compose up --build</code> <br>
+<code>docker compose up</code> <br>
+<br>
+mysql_data folder inside project is a mistake
